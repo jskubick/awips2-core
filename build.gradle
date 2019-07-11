@@ -1,6 +1,7 @@
 apply plugin: 'java'
 
-def srcPaths = ["common", "features", "edex", "viz"].stream()
+// , "features", "edex", "viz"
+def srcPaths = ["common"].stream()
         .map { new File(projectDir, it) }
         .flatMap { it.listFiles().toList().stream() }
         .map { new File(it, "src") }

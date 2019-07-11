@@ -1,4 +1,5 @@
 bin/
+build/
 .metadata/
 ldm/Debug
 test-bin/

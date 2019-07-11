@@ -1,0 +1,24 @@
+apply plugin: 'java'
+
+def srcPaths = ["common", "features", "edex", "viz"].stream()
+        .map { new File(projectDir, it) }
+        .flatMap { it.listFiles().toList().stream() }
+        .map { new File(it, "src") }
+        .toSet()
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = srcPaths
+            for (File file : srcDirs)
+                println(file.getAbsolutePath())
+        }
+    }
+}
+
+dependencies {
+    println "executing awips2core-android dependencies"
+    compile fileTree(dir: '../awips2-core-foss')
+
+}
